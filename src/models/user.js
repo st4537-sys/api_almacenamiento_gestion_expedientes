@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
@@ -20,4 +21,5 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("User", userSchema);
+// Busca si el modelo 'User' ya fue creado; si no, lo crea.
+module.exports = mongoose.models.User || mongoose.model("User", userSchema);
