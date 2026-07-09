@@ -4,9 +4,6 @@ const express = require("express");
 const conectarDB = require("./src/config/database");
 
 
-require("./src/models/user"); 
-require("./src/models/Expediente"); 
-
 
 const expedienteRoutes = require("./src/routes/expedienteRoutes");
 const userRoutes = require("./src/routes/userRoutes"); // <-- 1. Importamos tus nuevas rutas de usuario

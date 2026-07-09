@@ -32,4 +32,5 @@ const expedienteSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("Expediente", expedienteSchema);
+// Reemplaza tu module.exports actual por este control de duplicados:
+module.exports = mongoose.models.Expediente || mongoose.model("Expediente", expedienteSchema);
