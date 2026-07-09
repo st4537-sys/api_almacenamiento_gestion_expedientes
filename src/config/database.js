@@ -12,7 +12,6 @@ const conectarDB = async () => {
 
         console.log(error);
         console.log("Error al conectar");
-        process.exit(1);
 
     }
 
