@@ -3,12 +3,10 @@ require("dotenv").config();
 const express = require("express");
 const conectarDB = require("./src/config/database");
 
-// --- FORZAR REGISTRO DE MODELOS (Solución para Vercel) ---
-// Importamos los modelos al inicio para evitar el error "Schema hasn't been registered"
+
 require("./src/models/user"); 
-// Si tienes un archivo para Expediente, descomenta la siguiente línea:
-// require("./src/models/Expediente"); 
-// ---------------------------------------------------------
+require("./src/models/Expediente"); 
+
 
 const expedienteRoutes = require("./src/routes/expedienteRoutes");
 const userRoutes = require("./src/routes/userRoutes"); // <-- 1. Importamos tus nuevas rutas de usuario
