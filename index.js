@@ -9,10 +9,26 @@ const app = express();
 // Conectar a MongoDB
 conectarDB();
 
+// Middleware
 app.use(express.json());
 
-// Rutas
+// Ruta de prueba
+app.get("/", (req, res) => {
+    res.status(200).json({
+        mensaje: "API Almacenamiento Gestión de Expedientes funcionando correctamente",
+        estado: "OK"
+    });
+});
+
+// Rutas de la API
 app.use("/api", expedienteRoutes);
 
-// Exportar la aplicación para Vercel
+// Ruta para errores 404
+app.use((req, res) => {
+    res.status(404).json({
+        mensaje: "Ruta no encontrada"
+    });
+});
+
+// Exportar para Vercel
 module.exports = app;
