@@ -1,4 +1,4 @@
-const User = require('../models/User'); // Ajusta la ruta según tu estructura de carpetas
+const User = require('../models/user'); // Ajusta la ruta según tu estructura de carpetas
 
 // 1. Crear un nuevo usuario (POST)
 exports.crearUsuario = async (req, res) => {
