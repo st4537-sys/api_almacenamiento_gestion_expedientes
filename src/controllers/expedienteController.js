@@ -27,7 +27,7 @@ const crearExpediente = async (req, res) => {
 const obtenerExpedientes = async (req, res) => {
     try {
 
-        const expedientes = await Expediente.find().populate("usuarioId");
+        const expedientes = await Expediente.find();
 
         res.status(200).json(expedientes);
 
@@ -45,8 +45,7 @@ const obtenerExpedientes = async (req, res) => {
 const obtenerExpedientePorId = async (req, res) => {
     try {
 
-        const expediente = await Expediente.findById(req.params.id)
-            .populate("usuarioId");
+        const expediente = await Expediente.findById(req.params.id);
 
         if (!expediente) {
             return res.status(404).json({
