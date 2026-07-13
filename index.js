@@ -3,13 +3,10 @@ require("dotenv").config();
 const express = require("express");
 const conectarDB = require("./src/config/database");
 
-
-
 const expedienteRoutes = require("./src/routes/expedienteRoutes");
-const userRoutes = require("./src/routes/userRoutes"); // <-- 1. Importamos tus nuevas rutas de usuario
+const userRoutes = require("./src/routes/userRoutes");
 
 const app = express();
-const port = process.env.PORT || 5100;
 
 // Conectar a MongoDB
 conectarDB();
@@ -27,7 +24,7 @@ app.get("/", (req, res) => {
 
 // Rutas de la API
 app.use("/api", expedienteRoutes);
-app.use("/api/users", userRoutes); // <-- 2. Registramos las rutas de usuarios aquí
+app.use("/api/users", userRoutes);
 
 // Ruta para errores 404
 app.use((req, res) => {
@@ -35,6 +32,15 @@ app.use((req, res) => {
         mensaje: "Ruta no encontrada"
     });
 });
+
+// Iniciar servidor solo en entorno local
+if (process.env.NODE_ENV !== "production") {
+    const PORT = process.env.PORT || 5100;
+
+    app.listen(PORT, () => {
+        console.log(`🚀 Servidor ejecutándose en el puerto ${PORT}`);
+    });
+}
 
 // Exportar para Vercel
 module.exports = app;
