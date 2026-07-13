@@ -21,11 +21,6 @@ const expedienteSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    usuarioId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        required: true
-    },
     fechaCarga: {
         type: Date,
         default: Date.now
