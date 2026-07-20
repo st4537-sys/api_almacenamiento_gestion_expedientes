@@ -13,7 +13,7 @@ conectarDB();
 
 // Middleware
 app.use(express.json());
-
+const verificarToken = require("./src/middleware/verificarToken");
 // Ruta de prueba
 app.get("/", (req, res) => {
     res.status(200).json({
