@@ -1,4 +1,5 @@
 require("dotenv").config();
+const helmet = require('helmet');
 
 const express = require("express");
 const conectarDB = require("./src/config/database");
@@ -7,6 +8,9 @@ const expedienteRoutes = require("./src/routes/expedienteRoutes");
 const userRoutes = require("./src/routes/userRoutes");
 
 const app = express();
+app.use (helmet());
+
+
 
 // Conectar a MongoDB
 conectarDB();
